@@ -3824,7 +3824,6 @@ button.shopify-payment-button__button--unbranded {
   justify-content: flex-end;
   position: relative;
   z-index: 1;
-  transform: rotate(90deg);
 }
 .custom-banner-wrapper .image-wrap img {
   width: 50%;
