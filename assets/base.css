@@ -3826,7 +3826,7 @@ button.shopify-payment-button__button--unbranded {
   z-index: 1;
 }
 .custom-banner-wrapper .image-wrap img {
-  width: 100%;
+  width: 50%;
   margin-right: 5%;
   margin-bottom: -11rem;
 }
