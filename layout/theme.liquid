@@ -348,6 +348,14 @@
       {{ content_for_layout }}
     </main>
 
+    <script>
+      new fullpage('#fullpage', {
+          autoScrolling: true,
+          navigation: true,
+          scrollOverflow: true,
+      });
+    </script>
+
     {% sections 'footer-group' %}
 
     <ul hidden>
@@ -401,13 +409,5 @@
     {%- endif -%}
     <script src="{{ '10_swiper-bundle.min.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'custom-script.js' | asset_url }}" defer="defer"></script>
-
-    <script>
-      new fullpage('#fullpage', {
-          autoScrolling: true,
-          navigation: true,
-          scrollOverflow: true,
-      });
-    </script>
   </body>
 </html>
