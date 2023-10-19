@@ -1,6 +1,10 @@
 <style>
-
+  #model-container {
+    width: 400px;
+    height: 400px;
+  }
 </style>
+
 <div class="custom-banner-wrapper">
   <div class="page-width">
     <div class="banner-inner">
@@ -12,20 +16,43 @@
           <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/lon.svg?v=1694774582" alt="">
         </div>
       </div>
-      <div class="model-wrap">
-        <model-viewer src="https://example.com/path-to-your-model.glb" alt="3D Model" auto-rotate camera-controls></model-viewer>
-      </div>
+      <div id="model-container"></div>
     </div>
   </div>
 </div>
 
-{% stylesheet %}
-@import url('https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.css');
-{% endstylesheet %}
+<script type="module">
+  import * as THREE from 'https://threejs.org/build/three.module.js';
+  import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
+  import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
 
-{% javascript %}
-import '@google/model-viewer';
-{% endjavascript %}
+  const container = document.getElementById('model-container');
+  
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, container.offsetWidth/container.offsetHeight, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  
+  renderer.setSize(container.offsetWidth, container.offsetHeight);
+  container.appendChild(renderer.domElement);
+  
+  const loader = new GLTFLoader();
+  loader.load('{{ section.settings.model_url }}', (gltf) => {
+    const model = gltf.scene;
+    scene.add(model);
+    camera.position.z = 5;
+  });
+  
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.update();
+  
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  
+  animate();
+</script>
 
 {% schema %}
 {
