@@ -360,25 +360,26 @@
     </div>
 
     <script>
-      var myFullPage = new fullpage('#fullpage', {
-          autoScrolling: true,
-          navigation: true,
-          scrollOverflow: true,
-          onLeave: function(origin, destination, direction){
-              var leavingSection = this;
+            var myFullPage = new fullpage('#fullpage', {
+                autoScrolling: true,
+                navigation: true,
+                scrollOverflow: true,
+                onLeave: function(origin, destination, direction){
+                    var leavingSection = this;
 
-              // After leaving section 2 (or another section if you have more full-page sections)
-              if(origin.index == 1 && direction =='down'){
-                  fullpage_api.setAutoScrolling(false);
-                  fullpage_api.setFitToSection(false);
-              }
+                    // After leaving section 2 (or another section if you have more full-page sections)
+      if(origin.index == 1 && direction =='down'){
+          fullpage_api.setAutoScrolling(true);
+          fullpage_api.setFitToSection(true);
+      }
 
-              if(origin.index != 1 && direction =='up'){
-                  fullpage_api.setAutoScrolling(true);
-                  fullpage_api.setFitToSection(true);
-              }
-          }
-      });
+      if(origin.index != 1 && direction =='up'){
+          fullpage_api.setAutoScrolling(true);
+          fullpage_api.setFitToSection(true);
+      }
+
+                }
+            });
     </script>
 
     {% sections 'footer-group' %}
