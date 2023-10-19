@@ -3,7 +3,7 @@
 </style>
 <div class="custom-banner-wrapper">
   <div class="page-width">
-    <div class="bannre-inner">
+    <div class="banner-inner">
       <div class="svg-wrap">
         <div class="first-svg">
           <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/byth.svg?v=1694774576" alt="">
@@ -12,23 +12,39 @@
           <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/lon.svg?v=1694774582" alt="">
         </div>
       </div>
-      <div class="image-wrap">
-        <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/black-padal-tilted_1.png?v=1694696628" alt="">
+      <div class="model-wrap">
+        <model-viewer src="https://example.com/path-to-your-model.glb" alt="3D Model" auto-rotate camera-controls></model-viewer>
       </div>
     </div>
   </div>
 </div>
+
+{% stylesheet %}
+@import url('https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.css');
+{% endstylesheet %}
+
+{% javascript %}
+import '@google/model-viewer';
+{% endjavascript %}
+
 {% schema %}
-  {
-    "name": "Cusotm Banner",
-    "tag": "section",
-    "class": "section custom-banner",
-    "settings": [],
-    "blocks": [],
-    "presets": [
-      {
-        "name": "Cusotm Banner"
-      }
-    ]
-  }
-  {% endschema %}
+{
+  "name": "Custom Banner",
+  "tag": "section",
+  "class": "section custom-banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "model_url",
+      "label": "3D Model URL",
+      "default": "https://cdn.shopify.com/s/files/1/0477/4841/5653/files/Bythlon_Pedal_Motion_Study_Visible_Parts_v2_2_1.glb?v=1697673579"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Custom Banner"
+    }
+  ]
+}
+{% endschema %}
