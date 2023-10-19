@@ -1,8 +1,8 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Section name",
+  "settings": []
+}
 {% endschema %}
 
 {% stylesheet %}
@@ -10,3 +10,18 @@
 
 {% javascript %}
 {% endjavascript %}
+
+<section style="height: 100vh; overflow-y: scroll; scroll-snap-type: y mandatory;">
+  <div style="height: 100vh; background-color: #f0f0f0; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <!-- Content for first full-screen div here -->
+    <h1 style="font-size: 4em; margin-bottom: 20px;">Bythlon</h1>
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.293 9.293a1 1 0 0 1 1.414 0L12 11.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 0-1.414z" fill="#000"/>
+    </svg>
+  </div>
+  <div style="height: 100vh; background-color: #e0e0e0; scroll-snap-align: start;">
+    <!-- Content for second full-screen div here -->
+  </div>
+  <!-- Add more full-screen divs as needed -->
+</section>
+
