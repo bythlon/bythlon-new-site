@@ -318,6 +318,7 @@
     {% sections 'header-group' %}
 
     <div id="fullpage">
+      
       <div class="section" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
         <h1 style="font-size: 4em; margin-bottom: 20px;">Bythlon</h1>
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -328,11 +329,13 @@
       <div class="section">
         <!-- ... -->
       </div>
+            
       <div class="section" data-anchor="main-content">
         <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
           {{ content_for_layout }}
         </main>
       </div>
+            
       <div class="section">
         {% sections 'footer-group' %}
       </div>
