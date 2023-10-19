@@ -318,24 +318,42 @@
     {% sections 'header-group' %}
 
     <div id="fullpage">
-      
-      <div class="section" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <h1 style="font-size: 4em; margin-bottom: 20px;">Bythlon</h1>
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8.293 9.293a1 1 0 0 1 1.414 0L12 11.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 0-1.414z" fill="#000"/>
-        </svg>
+      <div class="section custom-banner">
+        <style>
+          /* your styles here */
+        </style>
+        <div class="custom-banner-wrapper">
+          <div class="page-width">
+            <div class="bannre-inner">
+              <div class="svg-wrap">
+                <div class="first-svg">
+                  <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/byth.svg?v=1694774576" alt="">
+                </div>
+                <div class="second-svg">
+                  <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/lon.svg?v=1694774582" alt="">
+                </div>
+              </div>
+              <div class="image-wrap">
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/padal-horizontalpng.png?v=1694710442"
+                  alt=""
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="section">
         <!-- ... -->
       </div>
-            
+
       <div class="section" data-anchor="main-content">
         <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
           {{ content_for_layout }}
         </main>
       </div>
-            
+
       <div class="section">
         {% sections 'footer-group' %}
       </div>
