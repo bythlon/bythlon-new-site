@@ -1,87 +1,73 @@
-<style>
-  .full-screen-section {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-  }
-  #model-container {
-    width: 100%;
-    height: 100%;
-  }
-</style>
-
-<div class="full-screen-section">
-  <div class="custom-banner-wrapper">
-    <div class="page-width">
-      <div class="banner-inner">
-        <div class="svg-wrap">
-          <div class="first-svg">
-            <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/byth.svg?v=1694774576" alt="">
-          </div>
-          <div class="second-svg">
-            <img src="https://cdn.shopify.com/s/files/1/0477/4841/5653/files/lon.svg?v=1694774582" alt="">
-          </div>
-        </div>
-        <div id="model-container"></div>
-      </div>
+<!-- sections/split-section.liquid -->
+<section class="split-section">
+  <div class="split-section__left">
+    <img src="{{ section.settings.logo }}" alt="Logo" class="logo">
+    <p class="text-field">{{ section.settings.text_field_1 }}</p>
+    <p class="text-field">{{ section.settings.text_field_2 }}</p>
+    <p class="text-field">{{ section.settings.text_field_3 }}</p>
+    <div class="buttons">
+      <a href="{{ section.settings.button_1_link }}" class="btn">{{ section.settings.button_1_text }}</a>
+      <a href="{{ section.settings.button_2_link }}" class="btn">{{ section.settings.button_2_text }}</a>
     </div>
   </div>
-</div>
-
-<script type="module">
-  import * as THREE from 'https://threejs.org/build/three.module.js';
-  import { GLTFLoader } from 'https://threejs.org/examples/jsm/loaders/GLTFLoader.js';
-  import { OrbitControls } from 'https://threejs.org/examples/jsm/controls/OrbitControls.js';
-
-  const container = document.getElementById('model-container');
-  
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(75, container.offsetWidth/container.offsetHeight, 0.1, 1000);
-  const renderer = new THREE.WebGLRenderer({ antialias: true });
-  
-  renderer.setSize(container.offsetWidth, container.offsetHeight);
-  container.appendChild(renderer.domElement);
-  
-  const loader = new GLTFLoader();
-  loader.load('{{ section.settings.model_url }}', (gltf) => {
-    const model = gltf.scene;
-    scene.add(model);
-    camera.position.z = 5;
-  });
-  
-  const controls = new OrbitControls(camera, renderer.domElement);
-  controls.update();
-  
-  function animate() {
-    requestAnimationFrame(animate);
-    controls.update();
-    renderer.render(scene, camera);
-  }
-  
-  animate();
-</script>
+  <div class="split-section__right">
+    <img src="{{ section.settings.right_image }}" alt="Right Image">
+  </div>
+</section>
 
 {% schema %}
 {
-  "name": "Custom Banner",
-  "tag": "section",
-  "class": "section custom-banner",
+  "name": "Split Section",
   "settings": [
     {
-      "type": "text",
-      "id": "model_url",
-      "label": "3D Model URL",
-      "default": "https://cdn.shopify.com/s/files/1/0477/4841/5653/files/Bythlon_Pedal_Motion_Study_Visible_Parts_v2_2_1.glb?v=1697673579"
-    }
-  ],
-  "blocks": [],
-  "presets": [
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
     {
-      "name": "Custom Banner"
+      "type": "text",
+      "id": "text_field_1",
+      "label": "Text Field 1",
+      "default": "Your text here"
+    },
+    {
+      "type": "text",
+      "id": "text_field_2",
+      "label": "Text Field 2",
+      "default": "Your text here"
+    },
+    {
+      "type": "text",
+      "id": "text_field_3",
+      "label": "Text Field 3",
+      "default": "Your text here"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Button 1"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Button 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Image"
     }
   ]
 }
